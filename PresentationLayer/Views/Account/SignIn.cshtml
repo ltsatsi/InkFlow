@@ -1,0 +1,45 @@
+﻿@model DomainLayer.Dtos.Account.SignInDto
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col col-md-7 col-lg-4 p-5">
+        <div class="mb-5 text-center">
+            <h4>Welcome back!</h4>
+            <p class="text-muted">Continue with your signing in credentials</p>
+        </div>
+
+
+        <div>
+            <form asp-action="SignIn">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="control-label mb-2"></label>
+                    <input asp-for="Email" class="form-control mb-1" placeholder="author@inkflow.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <label asp-for="Password" class="control-label mb-2"></label>
+                    <input asp-for="Password" class="form-control mb-1" placeholder="Enter password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <input type="submit" value="Sign In" class="btn btn-dark w-100 rounded-pill" />
+                </div>
+                <div class="form-group mb-3">
+                    <p class="text-center">Don't have an account yet ? <a asp-area="" asp-controller="Account" asp-action="SignUp" class="text-primary">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
