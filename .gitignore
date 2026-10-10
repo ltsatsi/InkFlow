@@ -1,0 +1,11 @@
+# User secrets
+**/secrets.json
+
+# Environment files
+.env
+.env.*
+
+# Visual Studio
+.vs/
+bin/
+obj/
